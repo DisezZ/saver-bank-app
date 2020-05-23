@@ -32,12 +32,12 @@ def _register():
     tempt=register(mongo,bcrypt)
     return tempt
 
-@app.route('/login',methods=['POST','GET'])
+@app.route('/login',methods=['GET','POST'])
 def _login():
     tempt=login(mongo,bcrypt,jwt,create_access_token)
     return tempt
 
-@app.route('/feature_1/', methods=['POST','GET'])
+@app.route('/feature_1/', methods=['GET','POST'])
 def _feature_1():
     tempt=feature_1(app)
     return tempt
