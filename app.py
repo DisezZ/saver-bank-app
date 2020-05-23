@@ -5,20 +5,22 @@ from flask import Flask, request, Response, jsonify
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager, create_access_token
 from F.feature_1 import feature_1
 from F.index import index
 from F.register import register
+from F.login import login
 
 app = Flask(__name__)
 
-app.config['MONGODB_SETTINGS'] = {
-    'host': 'mongodb://localhost/saver-bank-data'
-}
-app.config['MONGO_DBNAME']='saver-bank-data'
-app.config['MONGO_URI']='mongodb://localhost:27017/saver-bank-data'
+app.config['MONGO_URI']='mongodb+srv://Lutfee:9512095120@my-cluster-in0zc.gcp.mongodb.net/saver-bank-data?retryWrites=true&w=majority'
+app.config['JWT_SECRET_KEY']='hjdsncjnsncijdscuasdkndlkmcjasdnckdcaqelq'
 
 mongo=PyMongo(app)
 bcrypt=Bcrypt(app)
+jwt=JWTManager(app)
+
+CORS(app)
 
 @app.route('/')
 def _index():
@@ -30,10 +32,10 @@ def _register():
     tempt=register(mongo,bcrypt)
     return tempt
 
-# @app.route('/login',methods=['POST'])
-# def _login():
-#     tempt=login()
-#     return tempt
+@app.route('/login',methods=['POST','GET'])
+def _login():
+    tempt=login(mongo,bcrypt,jwt,create_access_token)
+    return tempt
 
 @app.route('/feature_1/', methods=['POST'])
 def _feature_1():
