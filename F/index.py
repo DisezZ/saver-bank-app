@@ -2,6 +2,7 @@ def index():
     return '''<h1 style="text-align:center">Hello World</h1><br>
 <h2>This API have 4 pages now</h2><br>
 <h3>1.This index Pages, path = /</h3><br>
+<br><hr><br>
 <h3>2.register API, path = /register</h3><br>
 <p>
 JSON key parameter = 'username','password','email','first_name','last_name'<br>return parameter = 'message','status'
