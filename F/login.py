@@ -16,7 +16,10 @@ def login(mongo,bcrypt,jwt,create_access_token):
             result=jsonify({
                 'token':access_token,
                 'message':'Login Successful',
-                'status':'200'
+                'status':'200',
+                'first_name':response1['first_name'],
+                'last_name':response1['last_name'],
+                'email':response1['email']
             })
         else:
             result=jsonify({
@@ -33,7 +36,10 @@ def login(mongo,bcrypt,jwt,create_access_token):
             result=jsonify({
                 'token':access_token,
                 'message':'Login successful',
-                'status':'200'
+                'status':'200',
+                'first_name':response2['first_name'],
+                'last_name':response2['last_name'],
+                'email':response2['email']
             })
         else:
             result=jsonify({

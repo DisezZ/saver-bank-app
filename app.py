@@ -32,7 +32,7 @@ def _register():
     tempt=register(mongo,bcrypt)
     return tempt
 
-@app.route('/login',methods=['POST','GET'])
+@app.route('/login/',methods=['POST','GET'])
 def _login():
     tempt=login(mongo,bcrypt,jwt,create_access_token)
     return tempt
