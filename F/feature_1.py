@@ -15,7 +15,7 @@ def feature_1(mongo):
             result=jsonify({
                 'electric_predict':check1['electric_predict'],
                 'base64_graph':check1['base64_graph'],
-                'type':'Exit_Query'
+                'type':'Exist_Query'
             })
         # down here for calling north's functions
         else:
