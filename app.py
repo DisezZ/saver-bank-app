@@ -39,7 +39,7 @@ def _login():
 
 @app.route('/feature_1/', methods=['POST','GET'])
 def _feature_1():
-    tempt=feature_1()
+    tempt=feature_1(mongo)
     return tempt
 
 

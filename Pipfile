@@ -13,6 +13,7 @@ flask-jwt-extended = "*"
 flask-pymongo = "*"
 dnspython = "*"
 gunicorn = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.8"
