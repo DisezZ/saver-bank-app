@@ -19,5 +19,5 @@ def AI(store_id,years,months,day):
     with open("graph.png", "rb") as R:
         Read=R.read()
     encoded = base64.b64encode(Read)
-
+    #send back
     return elec_predict,encoded
