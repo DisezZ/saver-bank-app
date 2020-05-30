@@ -19,7 +19,7 @@ def feature_1(mongo):
                 'type':'Exist_Query'
             })
         else:
-            # down here for calling north's functions ~~~
+            # down here for calling north's functions 
             elect_predict,encoded=AI(get['store_id'],get['years'],get['months'],get['date'])
 
             query_id=query.insert({
