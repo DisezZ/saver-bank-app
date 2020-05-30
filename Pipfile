@@ -17,6 +17,7 @@ matplotlib = "*"
 pandas = "*"
 sklearn = "*"
 keras = "*"
+pip = "==20.1.1"
 
 [requires]
 python_version = "3.8"
