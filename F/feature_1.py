@@ -2,7 +2,7 @@ from flask import request,jsonify
 from F.AI import AI
 
 def feature_1(mongo):
-    #try:
+    try:
         result=""
         get = request.get_json()
         query=mongo.db.Exist_Query
@@ -27,17 +27,17 @@ def feature_1(mongo):
                 "years":get['years'],
                 "months":get['months'],
                 "date":get['date'],
-                "electric_predict":elect_predict,
+                "electric_predict":str(elect_predict),
                 "base64_graph":encoded.decode()
             })
             result=jsonify({
-                'electric_predict':elect_predict,
+                'electric_predict':str(elect_predict),
                 'base64_graph':encoded.decode(),
                 'type':'Call_Fuction'
             })
         return result
-    # except:
-    #     result=jsonify({
-    #         'message':"An error or exception occurred"
-    #     })
-    #     return  result
+    except:
+        result=jsonify({
+            'message':"An error or exception occurred"
+        })
+        return  result
