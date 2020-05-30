@@ -1,8 +1,8 @@
 from flask import request,jsonify
-from .AI import AI
+from F.AI import AI
 
 def feature_1(mongo):
-    try:
+    #try:
         result=""
         get = request.get_json()
         query=mongo.db.Exist_Query
@@ -18,9 +18,10 @@ def feature_1(mongo):
                 'base64_graph':check1['base64_graph'],
                 'type':'Exist_Query'
             })
-        # down here for calling north's functions
         else:
+            # down here for calling north's functions
             elect_predict,encoded=AI(get['store_id'],get['years'],get['months'],get['date'])
+
             query_id=query.insert({
                 "store_id":get['store_id'],
                 "years":get['years'],
@@ -35,8 +36,8 @@ def feature_1(mongo):
                 'type':'Call_Fuction'
             })
         return result
-    except:
-        result=jsonify({
-            'message':"An error or exception occurred"
-        })
-        return  result
+    # except:
+    #     result=jsonify({
+    #         'message':"An error or exception occurred"
+    #     })
+    #     return  result

@@ -14,6 +14,10 @@ flask-pymongo = "*"
 dnspython = "*"
 gunicorn = "*"
 matplotlib = "*"
+pandas = "*"
+sklearn = "*"
+keras = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.8"
