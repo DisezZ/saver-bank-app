@@ -18,6 +18,7 @@ pandas = "*"
 sklearn = "*"
 keras = "*"
 pip = "==20.1.1"
+tensorflow = "*"
 
 [requires]
 python_version = "3.8"
