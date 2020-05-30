@@ -5,8 +5,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import base64, urllib
 
-def AI(store_id,years,months):
-    elec_predict=store_id+years+months
+def AI(store_id,years,months,date):
+    elec_predict=store_id+years+months+date
     plt.plot(range(0, 40))
     plt.savefig('graph.png')
     with open("graph.png", "rb") as R:

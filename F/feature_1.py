@@ -2,14 +2,15 @@ from flask import request,jsonify
 from .AI import AI
 
 def feature_1(mongo):
-    #try:
+    try:
         result=""
         get = request.get_json()
         query=mongo.db.Exist_Query
         check1=query.find_one({
             'store_id':get['store_id'],
             'years':get['years'],
-            'months':get['months']
+            'months':get['months'],
+            'date':get['date']
             })
         if check1:
             result=jsonify({
@@ -19,11 +20,12 @@ def feature_1(mongo):
             })
         # down here for calling north's functions
         else:
-            elect_predict,encoded=AI(get['store_id'],get['years'],get['months'])
+            elect_predict,encoded=AI(get['store_id'],get['years'],get['months'],get['date'])
             query_id=query.insert({
                 "store_id":get['store_id'],
                 "years":get['years'],
                 "months":get['months'],
+                "date":get['date'],
                 "electric_predict":elect_predict,
                 "base64_graph":encoded.decode()
             })
@@ -33,5 +35,8 @@ def feature_1(mongo):
                 'type':'Call_Fuction'
             })
         return result
-    #except:
-    #    return "An error or exception occurred" 
+    except:
+        result=jsonify({
+            'message':"An error or exception occurred"
+        })
+        return  result
